@@ -20,9 +20,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
 
     <link rel="website icon" type="png"
-    href="assets/logo.png">
+    href="assets/ldrboard-logo.png">
     
     <title>Biohazard</title>
+
+    <audio id="background-music" src="assets/guildraid-ost.mp3" loop></audio>
+
+    <script>
+    window.addEventListener('load', function() {
+      var audio = document.getElementById('background-music');
+      audio.play().catch(function(error) {
+        console.log('Error playing audio:', error);
+      });
+    });
+    function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -35,12 +51,6 @@
         h1 {
             color: #fff;
             text-shadow: 2px 2px 2px #000;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px; /* Sesuaikan dengan jarak antar elemen */
         }
 
         .leaderboard {
@@ -117,6 +127,22 @@
             margin-right: 10px;
         }
 
+        .details {
+            flex-grow: 1;
+        }
+
+        .player .role {
+            display: flex;
+            text-align: left;
+            color: #a7a7a7;
+            margin-top: auto;
+            margin-right: auto;
+            font-size: 0.75em;
+            font-weight: lighter;
+            font-family: 'Work Sans', sans-serif;
+            padding-right: 15px;
+        }
+
         .player .name {
             color: #cfd8e7;
             font-family: 'Work Sans', sans-serif;
@@ -128,7 +154,14 @@
             font-weight: lighter;
             position: relative;
             transform: translateX(-75);
-            margin-left: auto; /* Memastikan nama berada di kiri */
+            margin-left: auto;
+            font-size: 0.9em;
+        }
+
+        .number-box {
+            padding: 0px 15px;
+            background-color: #282A37;
+            border-radius: 50px;
         }
 
         footer {
@@ -139,23 +172,27 @@
         .back-button {
             position: absolute;
             top: 10px;
-            left: 10px;
-            background-color: #ffffff00;
+            right: 10px;
+            background-color: transparent;
+            outline: none;
+            border: none;
             color: #fff;
-            padding: 10px 20px;
-            text-decoration: underline;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-button img {
+            width: 50px; /* Lebar ikon */
+            height: 50px; /* Tinggi ikon */
         }
 
         .back-button:hover {
-            background-color: #ffffff00;
-            color: deepskyblue;
+            cursor: pointer;
+            transform: scale(1.10)
         }
 
         @media (max-width: 768px) {
             body {
-                background-position: top;
+                background-position: center;
             }
             
             h2 {
@@ -170,64 +207,116 @@
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">Kembali</a>
+    <button class="back-button" onclick="goBack()">
+        <img src="assets/close.png" alt="Back">
+    </button>
     <div class="leaderboard">
         <h1>Leaderboard</h1>
         <h2>Leaderboard ini tidak real-time, hanya diperbarui pada saat raid telah berakhir.</h2>
         <div class="guild">
-            <img class="profile-pic" src="assets/kanna-potrait.png" alt="Guild">
+            <img class="profile-pic" src="assets/char-potraits/kanna.png" alt="Guild">
             <span class="name">BiohazardS2</span>
             <span class="score">4.062.255.026</span>
         </div>
         <div class="player">
-            <img class="profile-pic" src="assets/mayreel-potrait.png" alt="P1">
+            <img class="profile-pic" src="assets/char-potraits/chun-ryeo.png" alt="P1">
+            <div class="details">
             <span class="name">DemonDy</span>
+            <span class="role">Staff</span>
+            </div>
+            <div class="number-box">
             <span class="score">1.223.631.522</span>
+            </div>
         </div>
         <div class="player">
-            <img class="profile-pic" src="assets/kamael-potrait.png" alt="P2">
+            <img class="profile-pic" src="assets/char-potraits/gourry.png" alt="P2">
+            <div class="details">
             <span class="name">Dzaky</span>
+            <span class="role">Member</span>
+            </div>
+            <div class="number-box">
             <span class="score">586.857.411</span>
+            </div>
         </div>
         <div class="player">
-            <img class="profile-pic" src="assets/mk99-potrait.png" alt="P3">
+            <img class="profile-pic" src="assets/char-potraits/veronica-sc.png" alt="P3">
+            <div class="details">
             <span class="name">okta</span>
+            <span class="role">Member</span>
+            </div>
+            <div class="number-box">
             <span class="score">504.143.616</span>
+            </div>
         </div>
         <div class="player">
-            <img class="profile-pic" src="assets/gourry-potrait.png" alt="P4">
+            <img class="profile-pic" src="assets/char-potraits/kamael.png" alt="P4">
+            <div class="details">
             <span class="name">Rei2356</span>
+            <span class="role">Member</span>
+            </div>
+            <div class="number-box">
             <span class="score">414.931.757</span>
+            </div>
         </div>
         <div class="player">
-            <img class="profile-pic" src="assets/andras-potrait.png" alt="P5">
+            <img class="profile-pic" src="assets/char-potraits/futureknight-sc.png" alt="P5">
+            <div class="details">
             <span class="name">Azer</span>
+            <span class="role">Member</span>
+            </div>
+            <div class="number-box">
             <span class="score">406.395.019</span>
+            </div>
         </div>
         <div class="player">
-            <img class="profile-pic" src="assets/eunha-potrait.png" alt="P6">
+            <img class="profile-pic" src="assets/char-potraits/futureknight-sc.png" alt="P6">
+            <div class="details">
             <span class="name">KONTH-</span>
+            <span class="role">Member</span>
+            </div>
+            <div class="number-box">
             <span class="score">337.288.037</span>
+            </div>
         </div>
         <div class="player">
-            <img class="profile-pic" src="assets/idoleva-potrait.png" alt="P7">
+            <img class="profile-pic" src="assets/char-potraits/fmknight-ascent.png" alt="P7">
+            <div class="details">
             <span class="name">Rajul</span>
+            <span class="role">Member</span>
+            </div>
+            <div class="number-box">
             <span class="score">197.425.733</span>
+            </div>
         </div>
         <div class="player">
-            <img class="profile-pic" src="assets/eunha-potrait.png" alt="P8">
+            <img class="profile-pic" src="assets/char-potraits/kamael-sc.png" alt="P8">
+            <div class="details">
             <span class="name">Akagami</span>
+            <span class="role">Member</span>
+            </div>
+            <div class="number-box">
             <span class="score">120.738.684</span>
+            </div>
         </div>
         <div class="player">
-            <img class="profile-pic" src="assets/lynn-potrait.png" alt="P9">
+            <img class="profile-pic" src="assets/char-potraits/vinette.png" alt="P9">
+            <div class="details">
             <span class="name">レザー</span>
+            <span class="role">Leader</span>
+            </div>
+            <div class="number-box">
             <span class="score">112.954.746</span>
+            </div>
         </div>
         <div class="player">
-            <img class="profile-pic" src="assets/eunha-potrait.png" alt="P10">
+            <img class="profile-pic" src="assets/char-potraits/miya-sc.png" alt="P10">
+            <div class="details">
             <span class="name">Rimuru</span>
+            <span class="role">Member</span>
+            </div>
+            <div class="number-box">
             <span class="score">58.365.364</span>
+            </div>
         </div>
         <!-- Add more player entries as needed -->
     </div>

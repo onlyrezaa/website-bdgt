@@ -20,6 +20,20 @@
     <link rel="website icon" type="png"
     href="assets/logo.png">
 
+    <audio id="background-music" src="assets/cavemain-ost.mp3" loop></audio>
+
+    <script>
+    window.addEventListener('load', function() {
+      var audio = document.getElementById('background-music');
+      audio.play().catch(function(error) {
+        console.log('Error playing audio:', error);
+      });
+    });
+    function goBack() {
+            window.history.back();
+        }
+    </script>
+
     <style>
         /* Reset some default styles for better consistency */
         body, h1, p {
@@ -67,18 +81,22 @@
         .back-button {
             position: absolute;
             top: 10px;
-            left: 10px;
-            background-color: #ffffff00;
-            color: #000000;
-            padding: 10px 20px;
-            text-decoration: underline;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
+            right: 10px;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            color: #fff;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-button img {
+            width: 50px; /* Lebar ikon */
+            height: 50px; /* Tinggi ikon */
         }
 
         .back-button:hover {
-            background-color: #ffffff00;
-            color: deepskyblue;
+            cursor: pointer;
+            transform: scale(1.10)
         }
 
         /* Add responsive CSS for smaller screens */
@@ -94,7 +112,9 @@
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">Kembali</a>
+    <button class="back-button" onclick="goBack()">
+        <img src="assets/close.png" alt="Back">
+    </button>
     <header>
         <h1>Tidak ada apa-apa disini.</h1>
     </header>

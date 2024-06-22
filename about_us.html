@@ -35,14 +35,29 @@
     <title>Biohazard</title>
     
     <link rel="website icon" type="png"
-    href="assets/logo.png">
+    href="assets/aboutus-logo.png">
+
+    <audio id="background-music" src="assets/guild-ost.mp3" loop></audio>
+
+    <script>
+    window.addEventListener('load', function() {
+      var audio = document.getElementById('background-music');
+      audio.play().catch(function(error) {
+        console.log('Error playing audio:', error);
+      });
+    });
+    function goBack() {
+            window.history.back();
+        }
+    </script>
 
     <style>
         body {
-            background-image: url('assets/credit-bg.png');
+            background-image: url('assets/background/just-home.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-position: center;
             margin: 0;
             padding: 0;
         }
@@ -131,18 +146,22 @@
         .back-button {
             position: absolute;
             top: 10px;
-            left: 10px;
-            background-color: #ffffff00;
+            right: 10px;
+            background-color: transparent;
+            outline: none;
+            border: none;
             color: #fff;
-            padding: 10px 20px;
-            text-decoration: underline;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-button img {
+            width: 50px; /* Lebar ikon */
+            height: 50px; /* Tinggi ikon */
         }
 
         .back-button:hover {
-            background-color: #ffffff00;
-            color: deepskyblue;
+            cursor: pointer;
+            transform: scale(1.10)
         }
 
         @media (max-width: 768px) {
@@ -154,7 +173,9 @@
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">Kembali</a>
+    <button class="back-button" onclick="goBack()">
+        <img src="assets/close.png" alt="Back">
+    </button>
     <header>
         <h1>About Us</h1>
     </header>
