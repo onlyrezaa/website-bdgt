@@ -35,13 +35,18 @@
     </script>
 
     <style>
-        /* Reset some default styles for better consistency */
         body, h1, p {
             margin: 0;
             padding: 0;
         }
 
-        /* Style the header */
+        .container {
+            display: flex;
+            justify-content: center; /* Menyusun secara horizontal */
+            align-items: center; /* Menyusun secara vertikal */
+            height: 100vh; /* Contoh untuk membuat container setinggi viewport */
+        }
+
         header {
             background-color: #ffffff00;
             color: #000;
@@ -74,7 +79,7 @@
             background-color: #00000000;
             color: #000000;
             text-align: center;
-            padding: 10px;
+            margin-top: auto;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -115,9 +120,11 @@
     <button class="back-button" onclick="goBack()">
         <img src="assets/close.png" alt="Back">
     </button>
+    <div class="container">
     <header>
         <h1>Tidak ada apa-apa disini.</h1>
     </header>
+    </div>
     <footer>
         &copy; 2023 Biohazard
     </footer>
